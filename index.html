@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
     <link rel="stylesheet" href="styles/main.css">
 </head>
-<body>
+<body ng-app="todoListApp">
+    <h1>My TODOs!</h1>
+    <div ng-controller="mainCtrl" class="list">
+        <div class="item" ng-repeat="todo in todos" ng-class="{'editing-item': editing}">
+            <input type="checkbox" ng-model="todo.completed">
+            <label ng-hide="editing">{{todo.name}}</label>
+            <input class="editing-label" type="text" ng-show="editing" ng-model="todo.name" ng-blur="editing = false">
+            <div class="actions">
+                <a href="" ng-click="editing = !editing">Edit</a>
+                <a href="" ng-click="helloWorld()">Save</a>
+                <a class="delete" href="">Delete</a>
+            </div>
+        </div>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
     <script src="scripts/app.js"></script>
