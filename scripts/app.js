@@ -2,6 +2,11 @@ angular.module('todoListApp', []).controller('mainCtrl', function($scope, dataSe
 
     $scope.todos = dataService.getTodosLocalStorage();
 
+    $scope.addTodo = function() {
+        let todo = {name: "This is a new todo."};
+        $scope.todos.push(todo);
+    };
+
     // dataService.getTodosAPI(function(response) {
     //     console.log(response.data);
     //     $scope.todos =  response.data;
