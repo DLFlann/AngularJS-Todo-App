@@ -10,26 +10,13 @@
 </head>
 <body ng-app="todoListApp">
     <h1>My TODOs!</h1>
-    <div ng-controller="mainCtrl" class="list">
-        <div class="add">
-            <a href="" ng-click="addTodo()">+ Add a New Task</a>
-        </div>
-        <div class="item" ng-repeat="todo in todos | orderBy : 'completed'" ng-init="todo.completed = false" ng-class="{'editing-item': editing, 'edited': todo.edited, 'completed': todo.completed}">
-            <input type="checkbox" ng-model="todo.completed">
-            <span ng-click="todo.completed = !todo.completed"></span>
-            <label ng-hide="editing">{{todo.name}}</label>
-            <input class="editing-label" type="text" ng-show="editing" ng-model="todo.name" ng-blur="editing = false" ng-change="todo.edited = true">
-            <div class="actions">
-                <a href="" ng-click="editing = !editing">Edit</a>
-                <a href="" ng-click="saveTodos()">Save</a>
-                <a class="delete" href="" ng-click="deleteTodo(todo, $index)">Delete</a>
-            </div>
-        </div>
-    </div>
+    
+    <todos></todos>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/services/data.js"></script>
+    <script src="scripts/directives/todos.js"></script>
 </body>
 </html>
